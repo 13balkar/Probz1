@@ -88,6 +88,8 @@ function is4(a){
 }
 function is6(a){
   var x= ip.isV6Format(a);
+  console.log(x);
+  console.log(a);
   return x;
   // ip.isV6Format('::ffff:127.0.0.1'); // true
 }

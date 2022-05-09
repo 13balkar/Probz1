@@ -381,6 +381,7 @@
                 
                 $.post("/is4", {ip:ip},(data,status)=>{
                     var out=data[0].data;
+                    document.getElementById("reslt").innerHTML="";
                     if(out){
                         document.getElementById("reslt1").innerHTML = "This is a correct ip address";
                     }else{
@@ -398,7 +399,9 @@
                 var ip=document.getElementById("ipf10").value;
                 $.post("/is6", {ip:ip},(data,status)=>{
                     var out=data[0].data;
-                    if(out){
+                    // console.log(out);
+                    document.getElementById("reslt").innerHTML="";
+                    if(out===true){
                         document.getElementById("reslt1").innerHTML = "This is a correct ip address. You can see expension and compression tools also.";
                     }else{
                         document.getElementById("reslt1").innerHTML = "This is not correct ip address";
@@ -418,6 +421,7 @@
                 $.post("/equal", {ip:ip,mask:mask},(data,status)=>{
                     var out=data[0].data;
                      console.log(out);
+                     document.getElementById("reslt").innerHTML="";
                      if(out){
                         document.getElementById("reslt1").innerHTML = "These addresses are equal. You can verify by expending or compressiong both of them";
                     }else{

@@ -132,6 +132,8 @@ app.post("/is4",function(req,res){
 })
 app.post("/is6",function(req,res){
   var out=is6(req.body.ip);
+  // console.log(req.body.ip);
+  // console.log(out);
   res.json([{
     data:out
   }])
