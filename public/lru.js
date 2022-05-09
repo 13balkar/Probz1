@@ -1,271 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="disk.js"></script>
-  
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cn.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="https://kit.fontawesome.com/59d8afb937.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
-
-    <title>Page Replacement</title>
-</head>
-
-<body>
-    <section class="section1">
-
-
-        <div class=" quess">
-            <div class="q1">
-                <i class="fa-solid fa-microchip i1"></i>
-                <p class="head1">Operating Systems </p>
-                <div class="list">
-                    <ul>
-                        <li> <a href="/os" > FCFS CPU Scheduling</a><br></li>
-                        <li> <a href="/sjf" > SJF CPU Scheduling</a><br></li>
-                        <li><a href="/rr"> Round Robin Scheduling</a><br></li>
-                        <!-- <li> <a href="deadlock.html">Deadlock Detection</a><br></li> -->
-
-                        <li> <a href="/disk">Disk Scheduling</a><br></li>
-                        <li> <a href="/page">Page Replacement</a><br></li>
-                        <!-- <li> <a onclick="compat()">IPv6 Coamptiblity Checker</a><br></li>
-                        <li> <a onclick="ip6expand()">IPv6 Expand</a><br></li>
-                        <li> <a onclick="ip6compress()">IPv6 Compress</a><br></li>
-                        <li> <a onclick="hostfun()">IP Hosting Details</a><br></li> -->
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </div>
-        <div class=" anss" >
-            
-            <a href="/"> <i class="fa-solid fa-house-chimney" style="margin-left:90%; margin-top: 2%; color: white; font-size:2rem;"></i></a>
-            <a href="/"> <p style="margin-left:89.5%; margin-top: -2%; color: white; font-size:1.2rem;">Home</p></a>
-
-
-            <!-- <div id="ipDetails" class="form3" style="margin-left: 15%;">
-            
-
-
-
-
-
-                <h1 class="display-3">FCFS Scheduling</h1>
-                <br>
-                <div id="showinput"></div>
-                <hr>
-                <div class="row">
-                    <div class="form-group" style="margin-left:50px; float:left;  width: 30%">
-                        <label class="col-form-label" for="inputDefault">Enter arrival time:</label>
-                        <input class="form-control" id="newat" name="at" placeholder="Arrival Time" type="text" size="35">
-                    </div>
-                    <div class="form-group" style="margin-left:50px; float:left;  width: 30%">
-                        <label class="col-form-label" for="inputDefault">Enter burst time:</label>
-                        <input class="form-control" id="newbt" name="bt" placeholder="Burst Time" type="text" size="35">
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary" style="margin-left: 8%; margin-top:5%;" onclick="addToList()">Add</button>
-                <br>
-                <button type="submit" class="btn btn-primary" style="margin-left: 50%;" onclick="showOutput(0)">Schedule It!</button>
-                <button type="submit" class="btn btn-primary" style="margin-left: 2%; position:absolute; " onclick="clearData()">Clear Data</button>
-
-
-
-
-
-
-            </div>
-            <div id="cpus" class="ans1 detail" style="width: 55%; margin-left:15% ;border: 1px solid;">
-               <h1>fjskn</h1>
-                <h3 id="operations-heading" style="text-align:center;"></h3>
-                <div id="operations"></div>
-
-
-                <h2 id="chart-header" style="text-align:center;"></h2>
-                <br />
-                <div id="gantt"></div>
-               
-                <div id="timer"></div>
-                <br /><br />
-                <div>
-                    <div style="width: 50%; text-align:center;float:left; font-size: 20px;" id="awt1"></div>
-                    <div style="width:50%; text-align:center;float:left;font-size:20px;" id="atat1"></div>
-                </div>
-
-
-
-
-                <h2 id="table-heading" style="text-align:center;"></h2>
-                <div>
-                    <table id="tab" class="table table-striped centered responsive-table" style="border-color: black; border-width: 2 px; align: center; cellspacing: 10px;">
-                        <thead id="thead"></thead>
-                        <tbody id="ptable"></tbody>
-                    </table>
-                </div>
-                <h1>hii</h1>
-            </div> -->
-
-
-
-
-
-            <div class="container-fluid" style="width: 60%; background-color: white; padding: 3% 5% 0%; height: 35%; border-radius: 5%;" id="focus">
-                <div class="row">
-                <div class="column">
-                        <div class="jumbotron">
-                            <h1 style="color:black;" class="display-3" font color = "black"><strong>Page Replacement</strong></h1>
-                            
-                        </div>
-                </div>
-                       
-                <div class="column">
-                        <form>
-                            <fieldset>
-                                <div class="row">
-                                    <div class="form-group" style=" float:left;">
-                        <br>
-                                        <label for="exampleSelect1">Select Algorithm</label>
-                                          <select  class="form-control" id="algorithm" >
-                                            <option id="o1" value="fcfs" onclick="FIFO()" >FIFO</option>
-                                            <option id="o2" value="sstf" onclick="LRU()">LRU</option>
-                                            <option id="o3" value="scan" onclick="MRU()">MRU</option>
-                                            <option id="o4" value="cscan" onclick="MFU()">MFU</option>
-                                            <option id="o5" value="look" onclick="SECONDchance()">SECOND CHANCE</option>
-                                           
-                                          </select>
-                                    </div>
-                                    <!-- <div class="form-group" style=" float:left;  width: 20%">
-                                        <br>
-                                        <label class="col-form-label" style="width: 180%;"  for="inputDefault">Sequence of cylinders</label>
-                                        <input style="width: 600%;" class="form-control" id="bitstream-input" name="bitstream" placeholder="Space-separated sequence" type="text" size="35">
-                                                    </div>
-                                    <div class="form-group" style=" float:left;" id="admDivCheck">
-                        <br>
-                                        <label for="exampleSelect1">Direction</label>
-                                        
-                                        <label class="col-form-label" style="margin-left: 24%;" for="inputDefault">Initial cylinder</label>
-                                        <label class="col-form-label" style="margin-left: 18%;" for="inputDefault">Last cylinder</label>
-                               
-                                        <br>
-                                          <select  class="form-control" style="width: 20%; display: inline-block;" id="direction">
-                                            <option value="left" selected="selected">Left</option>
-                                            <option value="right">Right</option>
-                                          </select>
-                                          <input style=" margin-left: 15%; width: 20%; display: inline-block;" class="form-control" id="initial-input" name="intial"  type="text" size="35">
-                                          <input style=" margin-left: 15%;width: 20%; display: inline-block;" class="form-control" id="final-input" name="final"  type="text" size="35">
-                                       
-                                       
-                                    </div> -->
-
-                                   
-                </div>
-                    <br>
-        
-                    <div class="container">
-                              <div id="alg_name"></div>
-                        <div id="alg_seek" style="width:180%;"></div>
-                          </div>
-                          <div class="container" >
-                           <div id="graph_area"  style="width:155%; margin-left:-25%; border-radius: 35%;"></div>
-                    </div>
-                    
-        </div>
-
-  
-
-
-
-        </div>
-        <form name = "Need">
-            <div class = "form-group" style="float:left;">
-<label>Number of Frames:</label>
-<br>
-
-<input type="number" class="form-control" id="noofFrames" >
-
- </form>
-
-        <form name = "resource">
-      <div class = "form-group"  float:left;>
-
-
-
-
-            <label>Number of Pages:</label><input class="form-control" type="Number" onkeyup="BuildFormFields(parseInt(this.value, 10));" />
-
-<br>
-<p>Enter the page sequence:</p>
-<div id="FormFields" ></div>
-            </div>
-</form>
-
-
-
-    </div>
-    <div class="row">
-
-        
-        <div class="form-group" style=" float:left; width: 20%">
-<br>
-            </div>
-        <div class="form-group" style=" float:left;  width: 20%">
-<br>
-                   
-        </div>
-        <div class="form-group" style=" float:left;  width: 20%">
-            <br><br><br>
-                                 
-                        </div>
-       
-    </div>
-</fieldset>
-</form>
-
-<button type="submit"  class="bt" style="margin-left: 50%; margin-top: -38%; width: 50%;"  id="plot-button" class="btn btn-primary"  onclick="extra()">Get Results</button>
-
-<br>
-<br>
-
-
-</div>
-<div id="ans_table">
-
-<table id="tab_need" class="table table-striped  table-hover" style="overflow-y: auto;">
-</table>
-<table id="tab_alloc" class="table table-striped table-hover">
-</table>
-</div>
-
-
-
-    </section>
-
-    <script>
-        var cpu=document.getElementById("cpus");
-        //alert('njkdv');
-        cpu.style.display="none";
-    </script>
-        
-    <script src="/lru.js"></script>
-    <!-- <script src="compare.js"></script> -->
-
-<script>
-
 var res,pro;
 		var resource;
 		var noofframes;
@@ -279,28 +11,13 @@ var res,pro;
                 var isLRU;
 			function BuildFormFields($amount) // For Resorce allocation
 			{
-			
             res = $amount;
                 if(res<0)
                 	alert("Invalid Inputs");
 				var
 					$container = document.getElementById('FormFields'),
-					$fcs=document.getElementById('focus'),
 					$item, $field, $i;
 				$container.innerHTML = '';
-
-				var hgt=Math.floor((35/100)*screen.height);
-				var count=0;
-				if($amount>8){
-				
-						count=$amount/8;
-						var h=hgt+count*350;
-						var h1=h.toString();
-						$fcs.style.height=h1 + 'px';
-
-					
-				}
-			
 				for ($i = 0; $i < $amount; $i++) {
 					$item = document.createElement('div');
 					$item.style.margin = '10px';
@@ -308,15 +25,8 @@ var res,pro;
 					$item.style.width="50px";
 					
 					
-			
-					// var height= $fcs.style.height;
-					
-					
-
-					
-					
                     $field = document.createElement('label');
-                    $field.innerHTML = 'Pg '+($i+1);
+                    $field.innerHTML = 'Page '+($i+1);
 					$item.appendChild($field);
 					$field = document.createElement('input');
 					$field.name = 'Design[' + $i + ']';
@@ -324,20 +34,6 @@ var res,pro;
                     $field.setAttribute("class","form-control");
 					$item.appendChild($field);
 				$container.appendChild($item);
-				$ans=document.getElementById('ans_table');
-				document.getElementById("ans_table").style.overflowY = "scroll";
-				$ans.style.width='60%';
-				$ans.style.backgroundColor="white";
-				$ans.style.marginLeft='20%';
-				$ans.style.height="30%";
-				$ans.style.borderRadius='20px';
-				$ans.style.display='none';
-				$ans.style.marginTop="5%";
-				$ans.style.paddingTop="3%";
-				$ans.style.paddingLeft="5%";
-				$ans.style.paddingRight="5%";
-				$ans.style.paddingBottom="2%";
-
 
 			
 			
@@ -346,34 +42,12 @@ var res,pro;
 
             }
 
-		function extra(){
-			var t=$( "#algorithm option:selected" ).text();
 		
-		if(t=='LRU')
-		LRU();
-
-		if(t=='MRU')
-		MRU();
-
-		if(t=='FIFO')
-		FIFO();
-
-		if(t=='MFU')
-		MFU();
-
-		if(t=='SECOND CHANCE')
-		SECONDchance();
-
-		}
 		function LRU()
 		{  
 									 //	if(noofframes<0||res<0||noofframes==""||res=="")
-									 $ans.style.display='block';
-
 		
-
 			isLRU=1;
-				
 			 MAIN();
 			 LRU1();
 			RESULTS();
@@ -381,21 +55,23 @@ var res,pro;
 
 		function MRU()
 		{  
-			$ans.style.display='block';
-			
 			isLRU=2;
 			MAIN();
 			LRU1();
 			RESULTS();
 		}
 
-		
+		function OPR()
+		{  isLRU=3;
+			 MAIN();
+			
+			OPR1();
+			RESULTS();
+		}
   
 
 		function FIFO()
-		{ 
-			$ans.style.display='block';
-			 isLRU=0;
+		{  isLRU=0;
 			 MAIN();
 		FIFO1();	
 			RESULTS();
@@ -403,7 +79,6 @@ var res,pro;
 
 		function MFU()
 		{  isLRU=4;
-			$ans.style.display='block';
 			 MAIN();
 			MFU1();		
 			RESULTS();
@@ -412,7 +87,6 @@ var res,pro;
 		function SECONDchance()
 		{  
 									 //	if(noofframes<0||res<0||noofframes==""||res=="")
-									 $ans.style.display='block';
 		
 			isLRU=5;
 			 MAIN();
@@ -904,8 +578,3 @@ var res,pro;
 		cell.innerHTML = "RESULT:";   //MFU mfu
 						  
 	}
-</script>
-
-</body>
-
-</html>

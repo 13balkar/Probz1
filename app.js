@@ -30,6 +30,11 @@ app.get("/ds",function(req,res){
   res.sendFile(__dirname + "/dsa.html");
 });
 
+app.get("/page",function(req,res){
+  //res.send("hfsij");
+  res.sendFile(__dirname + "/page.html");
+});
+
 app.get("/sjf",function(req,res){
   //res.send("hfsij");
   res.sendFile(__dirname + "/sjf.html");
