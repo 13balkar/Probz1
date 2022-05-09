@@ -1,8 +1,7 @@
 // import res from 'express/lib/response';
 import ip from 'ip';
-import ipInfo from 'ip-info-finder';
+// import ipInfo from 'ip-info-finder';
 import ip6 from 'ip6';
-import publicIp from 'public-ip';
 import i2i from 'ip-to-int';
 function getclass(ip) {
     if (ip >= 1 && ip <= 126)
@@ -41,13 +40,13 @@ function ipdetails(example,subnetx){
       class:getclass(ipadr_spl[0]),
       wild:getwild(subnet_spl)
   }
-  console.log(details);
+  // console.log(details);
   return details;
 }
 
 function compress(addr){
   if(!is6(addr))return "Invaild Ip address";
-  console.log("hi");
+  // console.log("hi");
   return ip6.abbreviate(addr);
 }
 function expand(addr){
@@ -56,19 +55,15 @@ function expand(addr){
   return ip6.normalize(addr);
 }
 
-async function getip(){
-  var x= await publicIp.v4();
-  console.log(x);
-  return x;
-}
 function hostdetails(addr){
   if(!is4(addr))return "Invaild Ip address";
   ipInfo.getIPInfo(addr).then(data => {
     console.log(data);
        return data;
-  })
-  .catch(err => console.log(err));
+  }).catch(err => console.log(err));
 }
+
+
 
 function iptodec(addr){
   if(!is4(addr))return "Invaild Ip address";
@@ -78,7 +73,9 @@ function iptodec(addr){
 function equalip(a,b){
   if(!is6(a) || !is6(b))return "Invaild Ip address";
   // ip.isEqual('::1', '::0:1'); // true
-  return ip.isEqual(a,b); // true
+  var x= ip.isEqual(a,b); // true
+  // console.log(x);
+  return x;
 }
 function tofull(mask){
   // ip.fromPrefixLen(24); // 255.255.255.0
@@ -86,15 +83,18 @@ function tofull(mask){
 }
 function is4(a){
   // ip.isV4Format('127.0.0.1'); // true
-  return ip.isV4Format(a);
+  var x= ip.isV4Format(a);
+  return x;
 }
 function is6(a){
-  return ip.isV6Format(a); 
+  var x= ip.isV6Format(a);
+  return x;
   // ip.isV6Format('::ffff:127.0.0.1'); // true
 }
 
+
 export default ipdetails;
-export {ipdetails,compress,expand,getip,hostdetails,iptodec};
+export {ipdetails,compress,expand,hostdetails,iptodec,is4,is6,equalip};
 
 
 
