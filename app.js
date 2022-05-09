@@ -1,5 +1,5 @@
 import path from 'path';
-// import {ipdetails,compress,expand,getip,hostdetails,iptodec} from './cn.js';
+import {ipdetails,compress,expand,hostdetails,iptodec,is4,is6,equalip} from './public/cn.js';
 // import {inorder,preorder,postorder} from "./tree.js"
 // import {infixToPrefix,infixToPostfix,preToPost} from "./stack.js";
 // import {knapSackprob,activities,JobScheduling} from "./greedy.js"
@@ -54,51 +54,90 @@ app.get("/", function(req, res) {
 });
 
 app.post("/ipdetail",function(req,res){
-  var out=ipdetails(req.body.ip,req.body.mask).toString();
+  var out=ipdetails(req.body.ip,req.body.mask);
   var inp={ips:req.body.ip,masks:req.body.mask};
   // res.send(out);
-  res.render('cn',{IPv4:inp,res:out,code:"inpdetail"});
+  //res.render('cn',{IPv4:inp,res:out,code:"inpdetail"});
+  // console.log(out);
+  res.json([{
+    data:out
+  }])
 })
 app.get('/convert',function(req,res){
   console.log('hi');
 })
 app.post("/convert",function(req,res){
   var out=enc(req.body.cars,req.body.cars1,req.body.mask).toString();
-  var inp={cars:req.body.cars,cars1:req.body.cars1,masks:req.body.mask};
-  res.render('cn',{IPv4:inp,res:out,code:"convert"});
+  // var inp={cars:req.body.cars,cars1:req.body.cars1,masks:req.body.mask};
+  // console.log(out);
+  res.json([{
+    data:out
+  }])
+  // res.render('cn',{IPv4:inp,res:out,code:"convert"});
 })
 app.post("/compress",function(req,res){
-  var out=compress(req.body.domain);
-  var inp=(req.body.domain);
+  var out=compress(req.body.ip);
+  var inp=(req.body.ip);
+  console.log(inp);
   // res.send(out);
-  res.render('cn',{IPv4:inp,res:out,code:"compress"});
+  // res.render('cn',{IPv4:inp,res:out,code:"compress"});
+  res.json([{
+    data:out
+  }])
 })
 app.post("/expand",function(req,res){
   // console.log(req.body.do);
-  var out=expand(req.body.do);
-  var inp=req.body.do;
+  var out=expand(req.body.ip);
+  var inp=req.body.ip;
   // res.send(out);
-  res.render('cn',{IPv4:inp,res:out,code:"expand"});
+  // res.render('cn',{IPv4:inp,res:out,code:"expand"});
+  res.json([{
+    data:out
+  }])
 })
 app.post("/hostdetail",function(req,res){
   var out=hostdetails(req.body.ip);
-  var inp=req.body.ip;
-  // res.send(out);
-  res.render('cn',{IPv4:inp,res:out,code:"hostdetail"});
-})
-app.post("/myip",function(req,res){
-  var x=getip();
-  console.log(x);
-  // res.send(x.toString());
-  res.render({IPv4:"Your Ip",out:x,code:"myip"});
+   res.json([{
+    data:out
+  }]);
 })
 app.post("/i2i",function(req,res){
   var out=iptodec(req.body.ip).toString();
   console.log(out);
   // res.send(out);
-  res.render({IPv4:req.body.ip,res:out,code:"i2i"});
+  // res.render({IPv4:req.body.ip,res:out,code:"i2i"});
+  res.json([{
+    data:out
+  }])
 })
+app.post("/i2i",function(req,res){
+  var out=iptodec(req.body.ip).toString();
+  console.log(out);
+  // res.send(out);
+  // res.render({IPv4:req.body.ip,res:out,code:"i2i"});
+  res.json([{
+    data:out
+  }])
+})
+app.post("/is4",function(req,res){
+  var out=is4(req.body.ip);
+  res.json([{
+    data:out
+  }])
+})
+app.post("/is6",function(req,res){
+  var out=is6(req.body.ip);
+  res.json([{
+    data:out
+  }])
+})
+app.post("/equal",function(req,res){
+  var out=equalip(req.body.ip,req.body.mask);
 
+  res.json([{
+    data:out
+  }]);
+})
 
 app.get("/dsa",function(req,res){
   res.sendFile(__dirname+"/dsa.html");
